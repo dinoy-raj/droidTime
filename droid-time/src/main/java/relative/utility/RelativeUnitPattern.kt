@@ -14,6 +14,7 @@ sealed class RelativeUnitPattern {
     /**
      *  Custom selected List of [RelativeLocalisedUnit]
      */
-    data class Custom(val relativeUnits: List<RelativeLocalisedUnit> = RelativeLocalisedUnit.entries) : RelativeUnitPattern()
+    data class Custom(val relativeUnits: List<RelativeLocalisedUnit> =
+        RelativeLocalisedUnit.entries) : RelativeUnitPattern()
 
 }

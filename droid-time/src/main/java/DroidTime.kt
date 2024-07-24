@@ -16,7 +16,8 @@ import java.time.ZoneId
 
 
 /**
- * [DroidTime]  class contains methods which are used to format time (whether kotlin instant or java instant or local date time)
+ * [DroidTime]  class contains methods which are used to format time
+ * (whether kotlin instant or java instant or local date time)
  * relatively and absolutely and generate default locale specific message
  *
  * - for Relative formatting [relativeLocalisedDateTimeFormatter] Eg. in 2 hours, 2 months ago
