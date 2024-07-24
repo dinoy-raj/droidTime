@@ -12,6 +12,7 @@ composeBom = "2024.06.00"
 appcompat = "1.7.0"
 material = "1.12.0"
 deteKt = "1.23.6"
+vaniTech = "0.29.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -38,4 +39,5 @@ jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = 
 android-library = { id = "com.android.library", version.ref = "agp" }
 dete-kt = { id = "io.gitlab.arturbosch.detekt", version.ref = "deteKt" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+vaniktech-publish = { id = "com.vanniktech.maven.publish.base", version.ref = "vaniTech"}
 
