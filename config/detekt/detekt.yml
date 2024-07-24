@@ -44,9 +44,8 @@ console-reports:
 output-reports:
   active: true
   exclude:
-  # - 'TxtOutputReport'
-  # - 'XmlOutputReport'
-  # - 'HtmlOutputReport'
+   - 'TxtOutputReport'
+   - 'HtmlOutputReport'
   # - 'MdOutputReport'
   # - 'SarifOutputReport'
 
@@ -107,6 +106,7 @@ complexity:
   CyclomaticComplexMethod:
     active: true
     threshold: 15
+    ignoreAnnotated: ['Composable']
     ignoreSingleWhenExpression: false
     ignoreSimpleWhenEntries: false
     ignoreNestingFunctions: false
@@ -128,6 +128,7 @@ complexity:
     threshold: 600
   LongMethod:
     active: true
+    ignoreAnnotated: ['Composable']
     threshold: 60
   LongParameterList:
     active: true
@@ -135,7 +136,8 @@ complexity:
     constructorThreshold: 7
     ignoreDefaultParameters: false
     ignoreDataClasses: true
-    ignoreAnnotatedParameter: [ ]
+    ignoreAnnotated: ['Composable']
+    ignoreAnnotatedParameter: []
   MethodOverloading:
     active: false
     threshold: 6
@@ -612,6 +614,7 @@ style:
   MagicNumber:
     active: true
     excludes: [ '**/test/**', '**/androidTest/**', '**/commonTest/**', '**/jvmTest/**', '**/androidUnitTest/**', '**/androidInstrumentedTest/**', '**/jsTest/**', '**/iosTest/**', '**/*.kts', '**/theme/**', '**/RelativeLocalisedUnit.kt' ]
+    ignoreAnnotated: ['Composable']
     ignoreNumbers:
       - '-1'
       - '0'

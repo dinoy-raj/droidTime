@@ -16,15 +16,16 @@ interface TimeFormatters {
         instant: kotlinx.datetime.Instant,
         unitPattern: RelativeUnitPattern = RelativeUnitPattern.Default,
         unitStyle: UnitStyle = UnitStyle.Long,
-        timeZone: TimeZone
+        timeZone: TimeZone = TimeZone.currentSystemDefault()
     ): String
+
 
     fun relativeLocalisedDateTimeFormatter(
         comparator: Instant,
         instant: Instant,
         unitPattern: RelativeUnitPattern = RelativeUnitPattern.Default,
         unitStyle: UnitStyle = UnitStyle.Long,
-        timeZone: TimeZone
+        timeZone: TimeZone = TimeZone.currentSystemDefault()
     ): String
 
     fun relativeLocalisedDateTimeFormatter(
@@ -32,7 +33,7 @@ interface TimeFormatters {
         instant: Long,
         unitPattern: RelativeUnitPattern = RelativeUnitPattern.Default,
         unitStyle: UnitStyle = UnitStyle.Long,
-        timeZone: TimeZone
+        timeZone: TimeZone = TimeZone.currentSystemDefault()
     ): String
 
     fun relativeLocalisedDateTimeFormatter(
@@ -40,7 +41,7 @@ interface TimeFormatters {
         instant: LocalDateTime,
         unitPattern: RelativeUnitPattern = RelativeUnitPattern.Default,
         unitStyle: UnitStyle = UnitStyle.Long,
-        timeZone: TimeZone
+        timeZone: TimeZone = TimeZone.currentSystemDefault()
     ): String
 
     fun relativeLocalisedDateTimeFormatter(
@@ -48,7 +49,7 @@ interface TimeFormatters {
         instant: java.time.LocalDateTime,
         unitPattern: RelativeUnitPattern = RelativeUnitPattern.Default,
         unitStyle: UnitStyle = UnitStyle.Long,
-        timeZone: TimeZone
+        timeZone: TimeZone = TimeZone.currentSystemDefault()
     ): String
 
 
