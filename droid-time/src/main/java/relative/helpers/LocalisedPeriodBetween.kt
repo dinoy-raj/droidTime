@@ -52,7 +52,5 @@ fun relativeToDateTimeMapping(unit: RelativeLocalisedUnit): DateTimeUnit? {
         RelativeLocalisedUnit.Hour -> DateTimeUnit.HOUR
         RelativeLocalisedUnit.Minute -> DateTimeUnit.MINUTE
         RelativeLocalisedUnit.Second -> DateTimeUnit.SECOND
-
-        else -> null
     }
 }

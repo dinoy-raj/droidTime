@@ -8,6 +8,7 @@ import kotlinx.datetime.toKotlinInstant
 import kotlinx.datetime.toKotlinLocalDateTime
 import relative.helpers.generateLocalisedMessage
 import relative.helpers.localisedPeriodBetween
+import relative.utility.RelativeLocalisedUnit
 import relative.utility.RelativeUnitPattern
 import utility.TimeFormatters
 import utility.UnitStyle
@@ -41,7 +42,7 @@ class DroidTime : TimeFormatters {
      *  This Api intended create formatted message based on highest [RelativeLocalisedUnit] exist in between [comparator] and [instant]
      *  it does not produce combination of Units like "in 5 days, 2 hour, 30 minutes".
      *
-     *  Utilise [relativeDateTimeFormatter] for such use case.
+     *  Utilise absoluteDateTimeFormatter for such use case.
      * ######
      *
      * @param [comparator]  kotlin Instant of time to which instant is compared.
@@ -99,7 +100,7 @@ class DroidTime : TimeFormatters {
      *  This Api intended create formatted message based on highest [RelativeLocalisedUnit] exist in between [comparator] and [instant]
      *  it does not produce combination of Units like "in 5 days, 2 hour, 30 minutes".
      *
-     *  Utilise [relativeDateTimeFormatter] for such use case.
+     *  Utilise absoluteDateTimeFormatter for such use case.
      * ######
      *
      * @param [comparator]  java Instant of time to which instant is compared.
@@ -120,14 +121,14 @@ class DroidTime : TimeFormatters {
     override fun relativeLocalisedDateTimeFormatter(
         comparator: java.time.Instant,
         instant: java.time.Instant,
-        formattingPattern: RelativeUnitPattern,
+        unitPattern: RelativeUnitPattern,
         unitStyle: UnitStyle,
         timeZone: TimeZone
     ): String {
         return relativeLocalisedDateTimeFormatter(
             comparator = comparator.toKotlinInstant(),
             instant = instant.toKotlinInstant(),
-            unitPattern = formattingPattern,
+            unitPattern = unitPattern,
             unitStyle = unitStyle,
             timeZone = timeZone
         )
@@ -151,7 +152,7 @@ class DroidTime : TimeFormatters {
      *  This Api intended create formatted message based on highest [RelativeLocalisedUnit] exist in between [comparator] and [instant]
      *  it does not produce combination of Units like "in 5 days, 2 hour, 30 minutes".
      *
-     *  Utilise [relativeDateTimeFormatter] for such use case.
+     *  Utilise absoluteDateTimeFormatter for such use case.
      * ######
      *
      * @param [comparator]  Epoch milli of time to which instant is compared.
@@ -172,7 +173,7 @@ class DroidTime : TimeFormatters {
     override fun relativeLocalisedDateTimeFormatter(
         comparator: Long,
         instant: Long,
-        formattingPattern: RelativeUnitPattern,
+        unitPattern: RelativeUnitPattern,
         unitStyle: UnitStyle,
         timeZone: TimeZone
     ): String {
@@ -181,7 +182,7 @@ class DroidTime : TimeFormatters {
                 .toInstant(),
             instant = java.time.Instant.ofEpochMilli(instant).atZone(ZoneId.systemDefault())
                 .toInstant(),
-            formattingPattern = formattingPattern,
+            unitPattern = unitPattern,
             unitStyle = unitStyle,
             timeZone = timeZone
         )
@@ -205,7 +206,7 @@ class DroidTime : TimeFormatters {
      *  This Api intended create formatted message based on highest [RelativeLocalisedUnit] exist in between [comparator] and [instant]
      *  it does not produce combination of Units like "in 5 days, 2 hour, 30 minutes".
      *
-     *  Utilise [relativeDateTimeFormatter] for such use case.
+     *  Utilise absoluteDateTimeFormatter for such use case.
      * ######
      *
      * @param [comparator]  Kotlin LocalDateTime of time to which instant is compared.
@@ -226,14 +227,14 @@ class DroidTime : TimeFormatters {
     override fun relativeLocalisedDateTimeFormatter(
         comparator: LocalDateTime,
         instant: LocalDateTime,
-        formattingPattern: RelativeUnitPattern,
+        unitPattern: RelativeUnitPattern,
         unitStyle: UnitStyle,
         timeZone: TimeZone
     ): String {
         return relativeLocalisedDateTimeFormatter(
             comparator = comparator.toInstant(TimeZone.currentSystemDefault()),
             instant = instant.toInstant(TimeZone.currentSystemDefault()),
-            unitPattern = formattingPattern,
+            unitPattern = unitPattern,
             unitStyle = unitStyle,
             timeZone = timeZone
         )
@@ -257,7 +258,7 @@ class DroidTime : TimeFormatters {
      *  This Api intended create formatted message based on highest [RelativeLocalisedUnit] exist in between [comparator] and [instant]
      *  it does not produce combination of Units like "in 5 days, 2 hour, 30 minutes".
      *
-     *  Utilise [relativeDateTimeFormatter] for such use case.
+     *  Utilise absoluteDateTimeFormatter for such use case.
      * ######
      *
      * @param [comparator] Java LocalDateTime of time to which instant is compared.
@@ -278,14 +279,14 @@ class DroidTime : TimeFormatters {
     override fun relativeLocalisedDateTimeFormatter(
         comparator: java.time.LocalDateTime,
         instant: java.time.LocalDateTime,
-        formattingPattern: RelativeUnitPattern,
+        unitPattern: RelativeUnitPattern,
         unitStyle: UnitStyle,
         timeZone: TimeZone
     ): String {
         return relativeLocalisedDateTimeFormatter(
             comparator = comparator.toKotlinLocalDateTime(),
             instant = comparator.toKotlinLocalDateTime(),
-            formattingPattern = formattingPattern,
+            unitPattern = unitPattern,
             unitStyle = unitStyle,
             timeZone = timeZone
         )
