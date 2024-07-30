@@ -56,6 +56,7 @@ dependencies {
 }
 
 mavenPublishing {
+
     coordinates("io.github.dinoy-raj", "droid-time", "1.0.0")
 
     pom {
@@ -69,6 +70,9 @@ mavenPublishing {
                 url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
                 distribution.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
             }
+        }
+        repositories {
+
         }
         developers {
             developer {
@@ -87,4 +91,18 @@ mavenPublishing {
 }
 
 task("testClasses"){}
+
+publishing {
+    publications {
+        register<MavenPublication>("release") {
+            groupId = "io.github.dinoy-raj"
+            artifactId = "droid-time"
+            version = "1.0.0"
+
+            afterEvaluate {
+                from(components["release"])
+            }
+        }
+    }
+}
 

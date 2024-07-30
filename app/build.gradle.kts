@@ -3,6 +3,8 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.dete.kt)
     alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.vaniktech.publish)
+    id("maven-publish")
 }
 
 android {
