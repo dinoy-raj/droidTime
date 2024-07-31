@@ -1,9 +1,13 @@
-https://github.com/dinoy-raj/droidTime/blob/main/droidtime.png <h1 align="left"> droid time </h1>
+<h1 align="left"> droid time </h1>
+
+
+###### Relative and absolute date time formatting android library generates message corresponding to system default locale
 
 
 Download
 --------
-use Gradle:
+
+###### Add dependency to module level build.gradle file
 
 ```gradle
 
