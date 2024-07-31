@@ -1,6 +1,7 @@
-<h1 align="left"> droid time </h1>
+<h1 align="center"> droid time </h1>
 
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.dinoy-raj/droid-time/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.dinoy-raj/droid-time)
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.dinoy-raj/droid-time?color=fedcba
+)](https://maven-badges.herokuapp.com/maven-central/io.github.dinoy-raj/droid-time)
 
 
 
