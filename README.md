@@ -7,7 +7,5 @@ use Gradle:
 
 ```gradle
 
-dependencies {
-  implementation("io.github.dinoy-raj:droid-time:1.0.0")
-}
+dependencies { implementation("io.github.dinoy-raj:droid-time:1.0.0") }
 ```
