@@ -117,20 +117,4 @@ val relativeTime = droidTime.relativeLocalisedDateTimeFormatter(
 // Result: "Last week"
 ```
 
-## Contributing
 
-Contributions are welcome! If you'd like to contribute, please follow these steps:
-
-1.  **Fork the repository.**
-2.  **Create a new branch** for your feature or bug fix: `git checkout -b my-new-feature`
-3.  **Make your changes.**
-4.  **Run the tests** to ensure everything is working correctly: `./gradlew test`
-5.  **Commit your changes:** `git commit -am 'Add some feature'`
-6.  **Push to the branch:** `git push origin my-new-feature`
-7.  **Submit a pull request.**
-
-## License
-
-This project is licensed under the Apache 2.0 License. See the [LICENSE](LICENSE) file for details.
-
-*(Note: A `LICENSE` file was not found in the repository. This is a placeholder. Please add a `LICENSE` file.)*
