@@ -1,20 +1,140 @@
 <h1 align="center"> droid time </h1>
 
-[![Maven Central](https://img.shields.io/maven-central/v/io.github.dinoy-raj/droid-time?color=fedcba
-)](https://maven-badges.herokuapp.com/maven-central/io.github.dinoy-raj/droid-time)
+<p align="center">
+  <a href="https://maven-badges.herokuapp.com/maven-central/io.github.dinoy-raj/droid-time"><img src="https://img.shields.io/maven-central/v/io.github.dinoy-raj/droid-time?color=fedcba" alt="Maven Central"></a>
+</p>
 
+<p align="center">
+  <img src="droidtime.png" alt="Droid Time Banner" width="400"/>
+</p>
 
+Droid Time is an Android library for formatting time relatively and absolutely, generating locale-specific messages. It simplifies the way you handle time differences in your Android applications, providing human-readable strings like "in 2 hours" or "5 months ago".
 
+## Features
 
-###### Relative and absolute date time formatting android library generates message corresponding to system default locale
+- **Relative Time Formatting**: Automatically formats time differences into easy-to-understand relative strings.
+- **Locale Aware**: Generates messages based on the device's default locale.
+- **Multiple Time Representations**: Supports `kotlinx.datetime.Instant`, `java.time.Instant`, `Long` (epoch milliseconds), `kotlinx.datetime.LocalDateTime`, and `java.time.LocalDateTime`.
+- **Customizable Units**: Control the verbosity and the set of time units used for formatting.
 
+## Installation
 
-Download
---------
-
-###### Add dependency to module level build.gradle file
+Add the dependency to your module-level `build.gradle` or `build.gradle.kts` file:
 
 ```gradle
-
-dependencies { implementation("io.github.dinoy-raj:droid-time:1.0.0") }
+dependencies {
+    implementation("io.github.dinoy-raj:droid-time:1.0.0")
+}
 ```
+
+## Usage
+
+Create an instance of `DroidTime` and use the `relativeLocalisedDateTimeFormatter` method to format your time values.
+
+```kotlin
+val droidTime = DroidTime()
+```
+
+### Formatting `kotlinx.datetime.Instant`
+
+```kotlin
+import kotlinx.datetime.Clock
+import kotlinx.datetime.Instant
+import kotlin.time.Duration.Companion.days
+
+val now = Clock.System.now()
+val fiveDaysAgo = now - 5.days
+
+val relativeTime = droidTime.relativeLocalisedDateTimeFormatter(
+    comparator = fiveDaysAgo,
+    instant = now
+)
+// Result: "5 days ago"
+```
+
+### Formatting `java.time.Instant`
+
+```kotlin
+import java.time.Instant
+import java.time.temporal.ChronoUnit
+
+val now = Instant.now()
+val twoHoursAgo = now.minus(2, ChronoUnit.HOURS)
+
+val relativeTime = droidTime.relativeLocalisedDateTimeFormatter(
+    comparator = twoHoursAgo,
+    instant = now
+)
+// Result: "2 hours ago"
+```
+
+### Formatting `Long` (Epoch Milliseconds)
+
+```kotlin
+val now = System.currentTimeMillis()
+val tenMinutesAgo = now - (10 * 60 * 1000)
+
+val relativeTime = droidTime.relativeLocalisedDateTimeFormatter(
+    comparator = tenMinutesAgo,
+    instant = now
+)
+// Result: "10 minutes ago"
+```
+
+### Customizing Unit Style
+
+You can control the verbosity of the output using `UnitStyle`.
+
+- `UnitStyle.LONG`: "5 months ago"
+- `UnitStyle.SHORT`: "5 mo. ago"
+- `UnitStyle.NARROW`: "5 mo. ago" (may vary by locale)
+
+```kotlin
+val relativeTime = droidTime.relativeLocalisedDateTimeFormatter(
+    comparator = fiveDaysAgo,
+    instant = now,
+    unitStyle = UnitStyle.SHORT
+)
+// Result: "5 days ago" (Note: Android's formatter might not always have shorter versions for all units)
+```
+
+### Customizing Unit Pattern
+
+You can specify which time units to use for formatting with `RelativeUnitPattern`.
+
+```kotlin
+import relative.utility.RelativeLocalisedUnit
+
+val customPattern = RelativeUnitPattern.Custom(
+    listOf(
+        RelativeLocalisedUnit.YEAR,
+        RelativeLocalisedUnit.MONTH,
+        RelativeLocalisedUnit.WEEK
+    )
+)
+
+val relativeTime = droidTime.relativeLocalisedDateTimeFormatter(
+    comparator = fiveDaysAgo,
+    instant = now,
+    unitPattern = customPattern
+)
+// Result: "Last week"
+```
+
+## Contributing
+
+Contributions are welcome! If you'd like to contribute, please follow these steps:
+
+1.  **Fork the repository.**
+2.  **Create a new branch** for your feature or bug fix: `git checkout -b my-new-feature`
+3.  **Make your changes.**
+4.  **Run the tests** to ensure everything is working correctly: `./gradlew test`
+5.  **Commit your changes:** `git commit -am 'Add some feature'`
+6.  **Push to the branch:** `git push origin my-new-feature`
+7.  **Submit a pull request.**
+
+## License
+
+This project is licensed under the Apache 2.0 License. See the [LICENSE](LICENSE) file for details.
+
+*(Note: A `LICENSE` file was not found in the repository. This is a placeholder. Please add a `LICENSE` file.)*
