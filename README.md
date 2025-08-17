@@ -4,10 +4,6 @@
   <a href="https://maven-badges.herokuapp.com/maven-central/io.github.dinoy-raj/droid-time"><img src="https://img.shields.io/maven-central/v/io.github.dinoy-raj/droid-time?color=fedcba" alt="Maven Central"></a>
 </p>
 
-<p align="center">
-  <img src="droidtime.png" alt="Droid Time Banner" width="400"/>
-</p>
-
 Droid Time is an Android library for formatting time relatively and absolutely, generating locale-specific messages. It simplifies the way you handle time differences in your Android applications, providing human-readable strings like "in 2 hours" or "5 months ago".
 
 ## Features
